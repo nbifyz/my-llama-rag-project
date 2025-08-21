@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG с Llama.cpp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* dark gray */
+            color: #e2e8f0; /* light gray */
+        }
+        .container {
+            max-width: 800px;
+        }
+        .message-box {
+            background-color: #2d3748; /* slightly lighter dark gray */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .user-message {
+            background-color: #4a5568; /* even lighter dark gray */
+            text-align: right;
+        }
+        .llm-response {
+            background-color: #2d3748;
+            white-space: pre-wrap; /* Сохраняет переносы строк и пробелы */
+        }
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="container mx-auto p-6 bg-gray-800 rounded-lg shadow-xl">
+        <h1 class="text-3xl font-bold text-center mb-6 text-blue-400">RAG с Llama.cpp</h1>
+
+        <div id="chat-history" class="mb-6 h-96 overflow-y-auto p-4 bg-gray-700 rounded-lg">
+            {% if user_query %}
+                <div class="message-box user-message">
+                    <p class="font-semibold text-blue-300">Ты:</p>
+                    <p>{{ user_query }}</p>
+                </div>
+                <div class="message-box llm-response">
+                    <p class="font-semibold text-green-300">LLM:</p>
+                    <p>{{ response_text }}</p>
+                </div>
+            {% else %}
+                <div class="message-box llm-response">
+                    <p class="font-semibold text-green-300">Система:</p>
+                    <p>{{ response_text }}</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <form id="rag-form" action="/ask" method="post" class="flex flex-col space-y-4">
+            <textarea
+                name="user_query"
+                id="user_query"
+                rows="3"
+                class="w-full p-3 rounded-md bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Введите ваш вопрос здесь..."
+                required
+            >{{ user_query if user_query else '' }}</textarea>
+            <button
+                type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
+            >
+                Спросить
+            </button>
+        </form>
+
+        <div id="loading-indicator" class="hidden text-center mt-4">
+            <div class="loading-spinner mx-auto"></div>
+            <p class="mt-2 text-blue-400">Загрузка ответа...</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('rag-form').addEventListener('submit', function(event) {
+            document.getElementById('loading-indicator').classList.remove('hidden');
+            document.getElementById('rag-form').querySelector('button').disabled = true;
+        });
+
+        // Прокрутка чата вниз при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            var chatHistory = document.getElementById('chat-history');
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        });
+    </script>
+</body>
+</html>

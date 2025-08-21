@@ -1,0 +1,136 @@
+C:\app\llama-RAG>tree /f
+Структура папок тома Windows 10
+Серийный номер тома: 3048-082E
+C:.
+│   .env
+│   tree..info
+│   TS.md
+│
+├───assets
+├───llama.cpp
+│       cublas64_12.dll
+│       cublasLt64_12.dll
+│       cudart64_12.dll
+│       dir
+│       ggml-base.dll
+│       ggml-cpu-alderlake.dll
+│       ggml-cpu-haswell.dll
+│       ggml-cpu-icelake.dll
+│       ggml-cpu-sandybridge.dll
+│       ggml-cpu-sapphirerapids.dll
+│       ggml-cpu-skylakex.dll
+│       ggml-cpu-sse42.dll
+│       ggml-cpu-x64.dll
+│       ggml-cuda.dll
+│       ggml-rpc.dll
+│       ggml.dll
+│       libcurl-x64.dll
+│       libomp140.x86_64.dll
+│       LICENSE-curl
+│       LICENSE-httplib
+│       LICENSE-jsonhpp
+│       LICENSE-linenoise
+│       llama-batched-bench.exe
+│       llama-bench.exe
+│       llama-cli.exe
+│       llama-gemma3-cli.exe
+│       llama-gguf-split.exe
+│       llama-imatrix.exe
+│       llama-llava-cli.exe
+│       llama-minicpmv-cli.exe
+│       llama-mtmd-cli.exe
+│       llama-perplexity.exe
+│       llama-quantize.exe
+│       llama-qwen2vl-cli.exe
+│       llama-run.exe
+│       llama-server.exe
+│       llama-server.help.md
+│       llama-tokenize.exe
+│       llama-tts.exe
+│       llama.cpp
+│       llama.dll
+│       mtmd.dll
+│       rag
+│       rpc-server.exe
+│       server.log
+│       Start01.bat
+│       StartSever.bat
+│       start_03.bat
+│       start_server.2.bat
+│
+└───secure_rag
+    │   default.md
+    │   requirements.txt
+    │   secure_rag_system.py
+    │
+    ├───current
+    │   ├───lore
+    │   └───_my
+    │           bred1.md
+    │           degret3fault.md
+    │           gl3.md
+    │           glur2.md
+    │           gluu6.md
+    │           gr5.md
+    │
+    ├───documents
+    │   └───_my
+    │           bred1.md
+    │           degret3fault.md
+    │           gl3.md
+    │           glur2.md
+    │           gluu6.md
+    │           gr5.md
+    │
+    ├───logs
+    ├───lore_books
+    │   │   Как начать играть в D&D.md
+    │   │
+    │   ├───EditedBooks
+    │   ├───PrepareLoreBooks
+    │   │   ├───InPut
+    │   │   │   │   Smith_work_2.txt
+    │   │   │   │   weapon_equipment.txt
+    │   │   │   │   Арсенал, снаряжение.txt
+    │   │   │   │
+    │   │   │   └───Done
+    │   │   └───OutPut
+    │   └───SavedBooks
+    ├───mans
+    │       tree.md
+    │
+    ├───md
+    │   │   processing.log
+    │   │
+    │   └───home
+    │       └───user
+    │           └───secure_rag
+    │               └───current
+    │                   └───_my
+    │                           bred1.md
+    │                           degret3fault.md
+    │                           gl3.md
+    │                           glur2.md
+    │                           gluu6.md
+    │                           gr5.md
+    │
+    ├───scripts
+    │       00.Prepare.sh
+    │       01_ai_text_generator.sh
+    │       02.create_vector_db.sh
+    │       02.create_vector_db0.py
+    │       02.test_vector_base.py
+    │       03.llama.cpp_rag.py
+    │       04.integration.py
+    │       05.run_server_api.sh
+    │       07.start_Web_rag_app.py
+    │       07_rag_web_app.log
+    │       add_lorebook.py
+    │       index.html
+    │
+    ├───vector_db
+    │       index.faiss
+    │       index.pkl
+    │
+    └───vector_dbs
+        └───DD5
